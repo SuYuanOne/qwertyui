@@ -1,0 +1,147 @@
+		
+
+
+		// 3.1.2  加依赖   前面的单词改成  implementation
+
+      implementation 'com.android.support:design:28.0.0'	//TabLayout控件
+   
+     implementation 'com.android.support:design:28.0.0'  //侧划
+  
+     implementation 'com.youth.banner:banner:1.4.10'	//轮播图
+
+     implementation 'com.github.bumptech.glide:glide:4.9.0'    // 图片
+
+     implementation 'com.squareup.okhttp3:okhttp:3.12.0'    //okhttp依赖
+     implementation 'com.squareup.retrofit2:retrofit:2.5.0'     //retrofit依赖
+     implementation 'com.google.code.gson:gson:2.2.4'  // Gson解析
+     implementation 'com.android.support:recyclerview-v7:28.0.0'  //recyclerview
+     implementation 'com.jcodecraeer:xrecyclerview:1.5.9'      //xrecyclerview
+     implementation 'com.android.support:cardview-v7:28.0.0'  //卡片布局
+    
+     implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-alpha-21' //下拉加载更多,上拉刷新的依赖
+     implementation 'com.scwang.smartrefresh:SmartRefreshHeader:1.1.0-alpha-21'
+     //没有使用特殊Header，可以不加这行(下拉加载更多,上拉刷新的依赖)
+    
+    //retrofit
+    implementation 'com.squareup.retrofit2:retrofit:2.5.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.3.0'//转换器，请求结果转换成Model
+    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.3.0'//配合Rxjava 使用
+
+    //RxJava
+    implementation 'io.reactivex.rxjava2:rxjava:2.2.4'
+    implementation 'io.reactivex.rxjava2:rxandroid:2.1.0'
+     configurations.all {
+        resolutionStrategy.eachDependency { DependencyResolveDetails details ->
+            def requested = details.requested
+            if (requested.group == 'com.android.support') {
+                if (!requested.name.startsWith("multidex")) {
+                    details.useVersion '27.1.1'
+                }
+            }
+        }
+    }
+	
+                                                                                       application/json;charset=utf-8
+
+--------------------------============================-------------------------------------
+
+    //retrofit
+    implementation 'com.squareup.retrofit2:retrofit:2.5.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.3.0'//转换器，请求结果转换成Model
+    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.3.0'//配合Rxjava 使用
+    //okhttp3 
+    implementation 'com.squareup.okhttp3:okhttp:3.12.0'
+    //glide  图片
+    implementation 'com.github.bumptech.glide:glide:4.9.0'
+
+
+    
+
+       http://yun918.cn/study/public/file_upload.php               //上传网址
+       http://cdn.banmi.com/banmiapp/apk/banmi_330.apk     //下载网址 
+
+------------------------------------------------------------=Greendao=-------------------------------------------
+
+##5.GreenDao的使用思路
+	//1、配置文件中的设置
+	// 在根工程中完成内容配置:
+	buildscript {
+	    repositories {
+	        jcenter()
+	        mavenCentral() // 添加的代码
+	    }
+	    dependencies {
+	        classpath 'com.android.tools.build:gradle:2.3.3'
+	        classpath 'org.greenrobot:greendao-gradle-plugin:3.2.2' // add plugin
+	    }
+	}
+	 
+	//在子工程中完成内容配置:
+	apply plugin: 'com.android.application'
+	apply plugin: 'org.greenrobot.greendao' // apply plugin
+	 
+	dependencies {
+	   implementation 'org.greenrobot:greendao:3.2.2' // 数据库
+	}
+
+
+	2、设置Green中的DaoMaster/DaoSession/实体类Dao生成路径
+	//自定义生成路径 daoPackage 'a.b.c'
+	greendao {
+	    schemaVersion 1
+	    daoPackage 'com.example.lizhengjun.dao'
+	    targetGenDir 'src/main/java'
+	}
+
+--------------------------------------------------====================-----------------------------
+
+//retrofit
+    implementation 'com.squareup.retrofit2:retrofit:2.5.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.3.0'//转换器，请求结果转换成Model
+    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.3.0'//配合Rxjava 使用
+
+    //RxJava
+    implementation 'io.reactivex.rxjava2:rxjava:2.2.4'
+    implementation 'io.reactivex.rxjava2:rxandroid:2.1.0'
+    implementation 'com.android.support:recyclerview-v7:27.1.1'
+    implementation 'com.github.bumptech.glide:glide:3.7.0'    // 图片
+
+    implementation 'org.greenrobot:eventbus:3.1.1'     //eventbus     
+
+//把imageview换成circleimageview
+implementation 'de.hdodenhof:circleimageview:2.1.0'
+
+-----------------------------------------------------------------------------------------------------------------------------
+				//上传图片
+//okhttp
+    implementation 'com.squareup.okhttp3:okhttp:3.11.0'
+    //butterknife
+
+    implementation 'com.jakewharton:butterknife:8.8.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+    //glide
+    implementation 'com.github.bumptech.glide:glide:4.8.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.8.0'
+    //gson
+    implementation 'com.google.code.gson:gson:2.2.4'
+    implementation 'com.squareup.retrofit2:retrofit:2.4.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.4.0' // 必要依赖，解析json字符所用
+    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.4.0' // 必要依赖，和Rxjava结合必须用到，下面会提到
+    implementation "io.reactivex.rxjava2:rxjava:2.1.3" // 必要rxjava2依赖
+    implementation "io.reactivex.rxjava2:rxandroid:2.0.1" // 必要rxandrroid依赖，切线程时需要用到
+
+
+
+----------------------------------------权限--------------------------------------------------------
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+
+
+
+
+
+
+
